@@ -1,0 +1,24 @@
+window:
+  width: 1700
+  height: 800
+  background_color: 0, 0, 0
+  font:
+    color: 0, 255, 64
+    size: 32
+
+margins:
+  left_padding: 30
+  right_padding: 30
+  bottom_padding: 80
+  top_padding: 80
+  inner_padding: 10
+
+figure:
+  border_width: 2
+  chart_color: 255, 255, 255
+  border_color: 0, 255, 64
+
+data:
+  count: 10
+main_loop:
+  fps: 30
