@@ -1,33 +1,24 @@
-from dataclasses import dataclass
 import random
+from sorts_visualize.application.values import Values
 from sorts_visualize.sort_algorithms.bubble_sort import BubbleSort
 from sorts_visualize.sort_algorithms.bidirection_bubble_sort import BiDirectionBubbleSort
 from sorts_visualize.sort_algorithms.improvement_bidirection_bubble_sort import ImprovementBiDirectionBubbleSort
 
 
-@dataclass()
 class State:
     def __init__(self, config):
+        self.algorithm = None
         self.config = config
         self.algorithms = [
             BubbleSort,
             BiDirectionBubbleSort,
             ImprovementBiDirectionBubbleSort
         ]
-        self.__initialize()
-
-    @staticmethod
-    def init_data(items_count):
-        arr = [el for el in range(1, items_count)]
-        random.shuffle(arr)
-        return {
-            'data': arr,
-            'maximum': max(arr),
-        }
+        self._initialize()
 
     def reset(self):
         alg = self.algorithm
-        self.__initialize()
+        self._initialize()
         self.algorithm = alg.__class__(self.data)
 
     def next_algorithm(self):
@@ -40,10 +31,16 @@ class State:
         if idx > 0:
             self.algorithm = self.algorithms[idx - 1](data=self.data)
 
-    def __initialize(self):
-        init_data = self.init_data(items_count=self.config['data']['count'])
-        self.data = init_data['data']
-        self.max_el = init_data['maximum']
+    @staticmethod
+    def _init_data(items_count):
+        arr = [el for el in range(1, items_count)]
+        random.shuffle(arr)
+        return Values(data=arr)
+
+    def _initialize(self):
+        init_data = self._init_data(items_count=self.config.data.count)
+        self.data = init_data.data
+        self.max_el = init_data.maximum
         self.positions = []
         self.is_worked = False
         self.is_sorted = False
