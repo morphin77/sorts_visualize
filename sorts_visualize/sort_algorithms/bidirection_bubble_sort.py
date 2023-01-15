@@ -1,10 +1,14 @@
 from sorts_visualize.sort_algorithms.base import BaseSortAlgorithm
 
 
-class Default(BaseSortAlgorithm):
+class BiDirectionBubbleSort(BaseSortAlgorithm):
     def __init__(self, data):
         super().__init__(data)
-        self.name = 'default'
+        self.name = 'BiDirectionBubbleSort'
+        self.description = """
+            Try to sorting neighbor elements again and again while some neighbor elements a change places.
+            Goes forward and backward 
+        """
         self.is_direct = True
         self.start_position = 0
         self.end_position = len(self.data) - 1
@@ -18,7 +22,6 @@ class Default(BaseSortAlgorithm):
                 res = [self.current_position, self.current_position + 1]
                 self.current_position += 1
             else:
-                self.end_position -= 1
                 self.is_direct = False
                 res = [self.current_position]
         else:
@@ -28,7 +31,6 @@ class Default(BaseSortAlgorithm):
                 res = [self.current_position, self.current_position - 1]
                 self.current_position -= 1
             else:
-                self.start_position += 1
                 self.is_direct = True
                 res = [self.current_position]
         return res
