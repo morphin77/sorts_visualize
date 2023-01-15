@@ -15,7 +15,8 @@ class MainWindow:
 
         if state.is_worked and not state.is_sorted:  # check statuses and run iteration of sorting
             state.positions = state.algorithm.sort()
-        state.is_sorted = state.algorithm.is_sorted()  # update statuses
+            state.iterations += 1
+        state.is_sorted = state.algorithm.is_sorted()
 
         self._render_layout(state=state)
         self._render_array_elements(state=state)
@@ -93,7 +94,7 @@ class MainWindow:
 
     def _header(self, state, font):
         text_header = font.render(
-            'Sorted Successfully' if state.is_sorted else 'Not sorted',
+            f"Iterations: {state.iterations} | " + ('Sorted Successfully' if state.is_sorted else 'Not sorted'),
             True,
             self.cnf.window.main_font.color,
             self.cnf.window.background
