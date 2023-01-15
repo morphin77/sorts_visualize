@@ -45,3 +45,4 @@ class State:
         self.is_worked = False
         self.is_sorted = False
         self.algorithm = self.algorithms[0](data=self.data)
+        self.iterations = 0
