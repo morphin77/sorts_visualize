@@ -5,6 +5,9 @@ class BubbleSort(BaseSortAlgorithm):
     def __init__(self, data):
         super().__init__(data)
         self.name = 'Classic Bubble sort'
+        self.description = """
+            Try to sorting neighbor elements again and again while some neighbor elements a change places.
+        """
         self.start_position = 0
         self.end_position = len(self.data) - 1
         self.current_position = self.start_position

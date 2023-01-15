@@ -2,6 +2,7 @@ class BaseSortAlgorithm:
     # data - array of values
     def __init__(self, data):
         self.name = ''
+        self.description = ''
         self.data = data
 
     # store his inner state work step by step

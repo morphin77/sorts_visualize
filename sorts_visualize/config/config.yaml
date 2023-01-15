@@ -1,13 +1,18 @@
 window:
-  width: 1700
-  height: 800
+  width: 1750
+  height: 900
   background_color: 0, 0, 0
-  font:
+  main_font:
+    font: freesansbold.ttf
     color: 0, 255, 64
     size: 32
+  secondary_font:
+    font: freesansbold.ttf
+    color: 0, 255, 64
+    size: 20
 
 margins:
-  left_padding: 30
+  left_padding: 400
   right_padding: 30
   bottom_padding: 80
   top_padding: 80

@@ -1,12 +1,19 @@
 from dataclasses import dataclass
-from sorts_visualize.sort_algorithms.bubble_sort import BubbleSort
 import random
+from sorts_visualize.sort_algorithms.bubble_sort import BubbleSort
+from sorts_visualize.sort_algorithms.bidirection_bubble_sort import BiDirectionBubbleSort
+from sorts_visualize.sort_algorithms.improvement_bidirection_bubble_sort import ImprovementBiDirectionBubbleSort
 
 
 @dataclass()
 class State:
     def __init__(self, config):
         self.config = config
+        self.algorithms = [
+            BubbleSort,
+            BiDirectionBubbleSort,
+            ImprovementBiDirectionBubbleSort
+        ]
         self.__initialize()
 
     @staticmethod
@@ -19,7 +26,19 @@ class State:
         }
 
     def reset(self):
+        alg = self.algorithm
         self.__initialize()
+        self.algorithm = alg.__class__(self.data)
+
+    def next_algorithm(self):
+        idx = self.algorithms.index(self.algorithm.__class__)
+        if idx < len(self.algorithms) - 1:
+            self.algorithm = self.algorithms[idx + 1](data=self.data)
+
+    def previous_algorithm(self):
+        idx = self.algorithms.index(self.algorithm.__class__)
+        if idx > 0:
+            self.algorithm = self.algorithms[idx - 1](data=self.data)
 
     def __initialize(self):
         init_data = self.init_data(items_count=self.config['data']['count'])
@@ -28,4 +47,4 @@ class State:
         self.positions = []
         self.is_worked = False
         self.is_sorted = False
-        self.algorithm = BubbleSort(data=self.data)
+        self.algorithm = self.algorithms[0](data=self.data)
