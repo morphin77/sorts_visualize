@@ -10,8 +10,8 @@ class State:
         self.__initialize()
 
     @staticmethod
-    def init_data(cnt):
-        arr = [el for el in range(1, cnt)]
+    def init_data(items_count):
+        arr = [el for el in range(1, items_count)]
         random.shuffle(arr)
         return {
             'data': arr,
@@ -22,10 +22,10 @@ class State:
         self.__initialize()
 
     def __initialize(self):
-        init_data = self.init_data(self.config['data']['count'])
+        init_data = self.init_data(items_count=self.config['data']['count'])
         self.data = init_data['data']
         self.max_el = init_data['maximum']
         self.positions = []
         self.is_worked = False
         self.is_sorted = False
-        self.algorithm = Default(self.data)
+        self.algorithm = Default(data=self.data)
