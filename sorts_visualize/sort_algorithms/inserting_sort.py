@@ -9,7 +9,6 @@ class InsertingSort(BaseSortAlgorithm):
             A simple sorting algorithm that builds the final sorted array one item at a time by comparisons
         """
         self.start_position = 0
-        self.end_position = len(self.data)
         self.current_position = self.start_position
 
     def sort(self):

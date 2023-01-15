@@ -1,5 +1,6 @@
 import random
 from sorts_visualize.application.values import Values
+from sorts_visualize.sort_algorithms.base import BaseSortAlgorithm
 from sorts_visualize.sort_algorithms.bubble_sort import BubbleSort
 from sorts_visualize.sort_algorithms.bidirection_bubble_sort import BiDirectionBubbleSort
 from sorts_visualize.sort_algorithms.improvement_bidirection_bubble_sort import ImprovementBiDirectionBubbleSort
@@ -10,12 +11,7 @@ class State:
     def __init__(self, config):
         self.algorithm = None
         self.config = config
-        self.algorithms = [
-            BubbleSort,
-            BiDirectionBubbleSort,
-            ImprovementBiDirectionBubbleSort,
-            InsertingSort
-        ]
+        self.algorithms = BaseSortAlgorithm.__subclasses__()
         self._initialize()
 
     def reset(self):
