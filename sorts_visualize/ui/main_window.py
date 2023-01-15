@@ -45,7 +45,7 @@ class MainWindow:
     def render_main_window(self, state):
         font = pygame.font.Font('freesansbold.ttf', self.font_size)
         text_header = font.render(
-            'Не отсортирован(((' if not state.is_sorted else 'Отсортирован)))',
+            state.algorithm.name + ' | ' + ('Не отсортирован(((' if not state.is_sorted else 'Отсортирован)))'),
             True,
             self.font_color,
             self.background_color
