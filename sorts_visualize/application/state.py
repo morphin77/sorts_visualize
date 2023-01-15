@@ -2,8 +2,7 @@ import random
 from sorts_visualize.application.values import Values
 from sorts_visualize.sort_algorithms.base import BaseSortAlgorithm
 from sorts_visualize.sort_algorithms.bubble_sort import BubbleSort
-from sorts_visualize.sort_algorithms.bidirection_bubble_sort import BiDirectionBubbleSort
-from sorts_visualize.sort_algorithms.improvement_bidirection_bubble_sort import ImprovementBiDirectionBubbleSort
+from sorts_visualize.sort_algorithms.cocktail_sort import CocktailSort
 from sorts_visualize.sort_algorithms.inserting_sort import InsertingSort
 
 

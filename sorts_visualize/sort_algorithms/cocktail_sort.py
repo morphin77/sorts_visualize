@@ -1,14 +1,15 @@
 from sorts_visualize.sort_algorithms.base import BaseSortAlgorithm
 
 
-class ImprovementBiDirectionBubbleSort(BaseSortAlgorithm):
+class CocktailSort(BaseSortAlgorithm):
     def __init__(self, data):
         super().__init__(data)
-        self.name = 'Improvement BiDirection Bubble sort'
+        self.name = 'Cocktail sort'
         self.description = """
             Try to sorting neighbor elements again and again while some neighbor elements a change places.
-            Goes forward and backward 
+            Goes forward and backward. 
             Not touch elements which already sorted.
+            BiDirectional Bubble Sort.
         """
         self.is_direct = True
         self.start_position = 0
