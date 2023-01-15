@@ -111,8 +111,8 @@ class MainWindow:
             ' '.join(
                 f"""
                     Space: {'Pause' if state.is_worked else 'Start'}, 
-                    UP: Next algorythm, 
-                    DOWN: Previous algorythm, 
+                    {'UP: Next algorythm,' if state.algorithms.index(state.algorithm.__class__ ) < len(state.algorithms) - 1 else ''} 
+                    {'DOWN: Previous algorythm,' if state.algorithms.index(state.algorithm.__class__ ) > 0 else ''} 
                     R: Reset, 
                     Q: Exit
                 """.split()
