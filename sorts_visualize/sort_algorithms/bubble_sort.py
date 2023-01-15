@@ -4,7 +4,7 @@ from sorts_visualize.sort_algorithms.base import BaseSortAlgorithm
 class BubbleSort(BaseSortAlgorithm):
     def __init__(self, data):
         super().__init__(data)
-        self.name = 'Classic Bubble sort'
+        self.name = 'Bubble sort'
         self.description = """
             Try to sorting neighbor elements again and again while some neighbor elements a change places.
         """
@@ -19,6 +19,7 @@ class BubbleSort(BaseSortAlgorithm):
             self.current_position += 1
         else:
             self.current_position = self.start_position
+            self.end_position -= 1
         return [self.current_position, self.current_position + 1]
 
 
