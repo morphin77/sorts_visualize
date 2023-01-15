@@ -1,22 +1,22 @@
 window:
   width: 1750
   height: 900
-  background_color: 0, 0, 0
+  background: 0, 0, 0
   main_font:
-    font: freesansbold.ttf
+    name: freesansbold.ttf
     color: 0, 255, 64
     size: 32
   secondary_font:
-    font: freesansbold.ttf
+    name: freesansbold.ttf
     color: 0, 255, 64
     size: 20
 
-margins:
-  left_padding: 400
-  right_padding: 30
-  bottom_padding: 80
-  top_padding: 80
-  inner_padding: 10
+paddings:
+  left: 400
+  right: 30
+  bottom: 80
+  top: 80
+  inner: 10
 
 figure:
   border_width: 2
@@ -25,5 +25,6 @@ figure:
 
 data:
   count: 50
+
 main_loop:
   fps: 30
