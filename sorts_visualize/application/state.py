@@ -24,11 +24,13 @@ class State:
     def next_algorithm(self):
         idx = self.algorithms.index(self.algorithm.__class__)
         if idx < len(self.algorithms) - 1:
+            self._initialize()
             self.algorithm = self.algorithms[idx + 1](data=self.data)
 
     def previous_algorithm(self):
         idx = self.algorithms.index(self.algorithm.__class__)
         if idx > 0:
+            self._initialize()
             self.algorithm = self.algorithms[idx - 1](data=self.data)
 
     @staticmethod
