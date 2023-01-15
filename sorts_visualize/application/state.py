@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from sorts_visualize.sort_algorithms.default import Default
 import random
 
 
@@ -27,3 +28,4 @@ class State:
         self.positions = []
         self.is_worked = False
         self.is_sorted = False
+        self.algorithm = Default(self.data)

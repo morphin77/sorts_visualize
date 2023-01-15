@@ -19,6 +19,6 @@ figure:
   border_color: 0, 255, 64
 
 data:
-  count: 10
+  count: 50
 main_loop:
   fps: 30
